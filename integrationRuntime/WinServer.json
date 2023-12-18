@@ -1,0 +1,6 @@
+{
+	"name": "WinServer",
+	"properties": {
+		"type": "SelfHosted"
+	}
+}

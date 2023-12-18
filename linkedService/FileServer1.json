@@ -1,0 +1,17 @@
+{
+	"name": "FileServer1",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "FileServer",
+		"typeProperties": {
+			"host": "\\\\winserver\\testfileshare",
+			"userId": "abhayj1987",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiIxZDBhYmE0Zi1mMzVjLTQxYjctYmY0Ni02NWQ5NjBjZGJkMzAiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "WinServer",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

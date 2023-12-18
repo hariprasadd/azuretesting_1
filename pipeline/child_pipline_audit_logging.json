@@ -75,10 +75,17 @@
 										"FolderName": {
 											"value": "@pipeline().parameters.FolderName",
 											"type": "Expression"
+										},
+										"FileName": {
+											"value": "@item().name",
+											"type": "Expression"
 										}
 									}
 								},
-								"fieldList": [],
+								"fieldList": [
+									"itemName",
+									"lastModified"
+								],
 								"storeSettings": {
 									"type": "AzureBlobFSReadSettings",
 									"enablePartitionDiscovery": false

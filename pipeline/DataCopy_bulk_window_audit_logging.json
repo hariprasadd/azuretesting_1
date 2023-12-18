@@ -48,13 +48,13 @@
 					{
 						"activity": "ADLS_Parenet_folder_metadata",
 						"dependencyConditions": [
-							"Completed",
 							"Succeeded"
 						]
 					}
 				],
 				"userProperties": [],
 				"typeProperties": {
+					"isSequential": false,
 					"activities": [
 						{
 							"name": "GetMetadata_childitems",

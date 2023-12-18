@@ -157,6 +157,10 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
+						"sqlReaderQuery": {
+							"value": "if object_id('dbo.audit_tbl') is not null drop table dbo.audit_tbl; select 1 as output;",
+							"type": "Expression"
+						},
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},

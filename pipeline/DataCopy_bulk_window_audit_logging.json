@@ -73,7 +73,25 @@
 							"dependsOn": [],
 							"userProperties": [],
 							"typeProperties": {
-								"waitOnCompletion": true
+								"pipeline": {
+									"referenceName": "child_pipline_audit_logging",
+									"type": "PipelineReference"
+								},
+								"waitOnCompletion": true,
+								"parameters": {
+									"windowStart": {
+										"value": "@pipeline().parameters.windowStart",
+										"type": "Expression"
+									},
+									"windowEnd": {
+										"value": "@pipeline().parameters.windowEnd",
+										"type": "Expression"
+									},
+									"FolderName": {
+										"value": "@item()",
+										"type": "Expression"
+									}
+								}
 							}
 						}
 					]

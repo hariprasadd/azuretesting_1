@@ -5,11 +5,20 @@
 			"referenceName": "ADLS",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"FolderName": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"folderPath": {
+					"value": "@concat(dataset().FolderName, '/HOT')",
+					"type": "Expression"
+				},
 				"fileSystem": "sink"
 			},
 			"columnDelimiter": ",",

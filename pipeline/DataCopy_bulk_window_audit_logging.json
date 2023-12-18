@@ -48,7 +48,8 @@
 					{
 						"activity": "ADLS_Parenet_folder_metadata",
 						"dependencyConditions": [
-							"Completed"
+							"Completed",
+							"Succeeded"
 						]
 					}
 				],

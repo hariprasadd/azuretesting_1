@@ -118,7 +118,7 @@
 								"source": {
 									"type": "AzureSqlSource",
 									"sqlReaderQuery": {
-										"value": "if object_id('dbo.audit_tbl') is null create table dbo.audit_tbl(itemName varchar(20), lastModifiedDateTime datetime); insert into dbo.audit_tbl select '@{activity('File Meta data').output.itemName}', '@{formatDateTime(activity('File Meta data').output.lastModified, 'yyyy-MM-dd HH:mm:ss')}'; select 1 as output;",
+										"value": "if object_id('dbo.audit_tbl') is null create table dbo.audit_tbl(folderName varchar(20),itemName varchar(20), lastModifiedDateTime datetime); insert into dbo.audit_tbl select '@{pipeline().parameters.FolderName},@{activity('File Meta data').output.itemName}', '@{formatDateTime(activity('File Meta data').output.lastModified, 'yyyy-MM-dd HH:mm:ss')}'; select 1 as output; ",
 										"type": "Expression"
 									},
 									"queryTimeout": "02:00:00",

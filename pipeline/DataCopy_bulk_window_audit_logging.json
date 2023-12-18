@@ -78,7 +78,12 @@
 								"secureOutput": false,
 								"secureInput": false
 							},
-							"userProperties": [],
+							"userProperties": [
+								{
+									"name": "Folder",
+									"value": "@item().name"
+								}
+							],
 							"typeProperties": {
 								"dataset": {
 									"referenceName": "Childitem_path",

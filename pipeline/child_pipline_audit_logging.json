@@ -38,6 +38,9 @@
 			},
 			"windowEnd": {
 				"type": "String"
+			},
+			"FolderName": {
+				"type": "string"
 			}
 		},
 		"variables": {

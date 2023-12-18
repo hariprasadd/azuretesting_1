@@ -91,7 +91,8 @@
 									}
 								},
 								"fieldList": [
-									"childItems"
+									"itemName",
+									"lastModified"
 								],
 								"storeSettings": {
 									"type": "AzureBlobFSReadSettings",

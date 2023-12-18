@@ -79,11 +79,6 @@
 				"type": "string"
 			}
 		},
-		"variables": {
-			"folde": {
-				"type": "String"
-			}
-		},
 		"annotations": [],
 		"lastPublishTime": "2023-12-16T06:43:04Z"
 	},

@@ -119,6 +119,10 @@
 							"typeProperties": {
 								"source": {
 									"type": "AzureSqlSource",
+									"sqlReaderQuery": {
+										"value": "@if object_id('dbo.audit_tbl') is null create table dbo.audit_tbl(itemName varchar(20), lastModifiedDateTime datetime); insert into dbo.audit_tbl select '@{activity('GetMetadata_childitems').output.itemName}', '@{formatDateTime(activity('GetMetadata_childitems').output.lastModified, 'yyyy-MM-dd HH:mm:ss')}'; select 1 as output;\n",
+										"type": "Expression"
+									},
 									"queryTimeout": "02:00:00",
 									"partitionOption": "None"
 								},

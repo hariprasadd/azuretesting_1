@@ -19,9 +19,19 @@
 						"referenceName": "ADLSDS",
 						"type": "DatasetReference"
 					},
-					"fieldList": [],
+					"fieldList": [
+						"childItems"
+					],
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings",
+						"modifiedDatetimeStart": {
+							"value": "@pipeline().parameters.windowStart",
+							"type": "Expression"
+						},
+						"modifiedDatetimeEnd": {
+							"value": "@pipeline().parameters.windowEnd",
+							"type": "Expression"
+						},
 						"enablePartitionDiscovery": false
 					},
 					"formatSettings": {

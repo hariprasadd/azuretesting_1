@@ -54,6 +54,10 @@
 				],
 				"userProperties": [],
 				"typeProperties": {
+					"items": {
+						"value": "@activity('ADLS_Parenet_folder_metadata').output.childItems",
+						"type": "Expression"
+					},
 					"isSequential": false,
 					"activities": [
 						{

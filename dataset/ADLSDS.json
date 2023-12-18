@@ -5,6 +5,11 @@
 			"referenceName": "ADLS",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"Folder": {
+				"type": "String"
+			}
+		},
 		"annotations": [],
 		"type": "Binary",
 		"typeProperties": {

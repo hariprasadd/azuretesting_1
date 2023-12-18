@@ -70,7 +70,13 @@
 							"typeProperties": {
 								"dataset": {
 									"referenceName": "Childitem_path",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"FolderName": {
+											"value": "@item().name",
+											"type": "Expression"
+										}
+									}
 								},
 								"fieldList": [],
 								"storeSettings": {

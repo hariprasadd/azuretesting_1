@@ -96,8 +96,6 @@
 									}
 								},
 								"fieldList": [
-									"itemName",
-									"lastModified",
 									"childItems"
 								],
 								"storeSettings": {

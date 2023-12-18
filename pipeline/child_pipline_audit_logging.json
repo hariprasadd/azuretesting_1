@@ -69,7 +69,7 @@
 							"userProperties": [],
 							"typeProperties": {
 								"dataset": {
-									"referenceName": "Childitem_path",
+									"referenceName": "Binary2",
 									"type": "DatasetReference"
 								},
 								"fieldList": [],
@@ -78,7 +78,7 @@
 									"enablePartitionDiscovery": false
 								},
 								"formatSettings": {
-									"type": "DelimitedTextReadSettings"
+									"type": "BinaryReadSettings"
 								}
 							}
 						}

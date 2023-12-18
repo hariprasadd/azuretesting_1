@@ -1,5 +1,5 @@
 {
-	"name": "DataCopy_bulk_window_audit_logging",
+	"name": "child_pipline_audit_logging",
 	"properties": {
 		"activities": [
 			{
@@ -164,6 +164,38 @@
 							"value": "if object_id('dbo.audit_tbl') is not null drop table dbo.audit_tbl; select 1 as output;",
 							"type": "Expression"
 						},
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "AzureSqlTable1",
+						"type": "DatasetReference"
+					}
+				}
+			},
+			{
+				"name": "select audit table",
+				"type": "Lookup",
+				"dependsOn": [
+					{
+						"activity": "ForEach1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"sqlReaderQuery": "select * from dbo.audit_tbl",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},

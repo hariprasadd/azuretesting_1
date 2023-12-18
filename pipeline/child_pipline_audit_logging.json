@@ -53,18 +53,7 @@
 					"items": {
 						"value": "@activity('Get Metadata1').output.childItems",
 						"type": "Expression"
-					},
-					"activities": [
-						{
-							"name": "Wait1",
-							"type": "Wait",
-							"dependsOn": [],
-							"userProperties": [],
-							"typeProperties": {
-								"waitTimeInSeconds": 1
-							}
-						}
-					]
+					}
 				}
 			}
 		],

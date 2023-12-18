@@ -23,7 +23,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "ADLSDS",
+						"referenceName": "Binary1",
 						"type": "DatasetReference"
 					},
 					"fieldList": [

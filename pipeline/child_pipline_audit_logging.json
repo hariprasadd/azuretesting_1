@@ -17,13 +17,7 @@
 				"typeProperties": {
 					"dataset": {
 						"referenceName": "ADLSDS",
-						"type": "DatasetReference",
-						"parameters": {
-							"Folder": {
-								"value": "@pipeline().parameters.FolderName",
-								"type": "Expression"
-							}
-						}
+						"type": "DatasetReference"
 					},
 					"fieldList": [
 						"childItems"

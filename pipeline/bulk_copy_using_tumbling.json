@@ -59,7 +59,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "SourceDataset_pzi",
+						"referenceName": "source_data",
 						"type": "DatasetReference"
 					}
 				]

@@ -100,22 +100,6 @@
 						}
 					}
 				}
-			},
-			{
-				"name": "Execute Pipeline2",
-				"type": "ExecutePipeline",
-				"dependsOn": [
-					{
-						"activity": "Copy_qvn",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"userProperties": [],
-				"typeProperties": {
-					"waitOnCompletion": true
-				}
 			}
 		],
 		"parameters": {

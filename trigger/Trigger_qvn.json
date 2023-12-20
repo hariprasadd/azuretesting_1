@@ -2,7 +2,7 @@
 	"name": "Trigger_qvn",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Stopped",
+		"runtimeState": "Started",
 		"pipeline": {
 			"pipelineReference": {
 				"referenceName": "bulk_copy_using_tumbling",

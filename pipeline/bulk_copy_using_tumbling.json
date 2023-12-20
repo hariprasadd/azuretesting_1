@@ -49,10 +49,27 @@
 						"type": "BinarySource",
 						"storeSettings": {
 							"type": "FileServerReadSettings",
-							"recursive": true
+							"recursive": true,
+							"modifiedDatetimeStart": {
+								"value": "@pipeline().parameters.windowStart",
+								"type": "Expression"
+							},
+							"modifiedDatetimeEnd": {
+								"value": "@pipeline().parameters.windowEnd",
+								"type": "Expression"
+							},
+							"wildcardFileName": "*",
+							"deleteFilesAfterCompletion": false
 						},
 						"formatSettings": {
 							"type": "BinaryReadSettings"
+						}
+					},
+					"sink": {
+						"type": "BinarySink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings",
+							"copyBehavior": "PreserveHierarchy"
 						}
 					},
 					"enableStaging": false
@@ -60,6 +77,12 @@
 				"inputs": [
 					{
 						"referenceName": "source_data",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "ADLSDS",
 						"type": "DatasetReference"
 					}
 				]

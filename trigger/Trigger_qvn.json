@@ -1,7 +1,6 @@
 {
 	"name": "Trigger_qvn",
 	"properties": {
-		"description": "git",
 		"annotations": [],
 		"runtimeState": "Started",
 		"type": "TumblingWindowTrigger",

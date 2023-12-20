@@ -1,16 +1,15 @@
 {
-	"name": "ADLSDS",
+	"name": "FileShareImportDataDS",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "ADLS",
+			"referenceName": "FileServer_importdata",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
 		"type": "Binary",
 		"typeProperties": {
 			"location": {
-				"type": "AzureBlobFSLocation",
-				"fileSystem": "sink"
+				"type": "FileServerLocation"
 			}
 		}
 	},

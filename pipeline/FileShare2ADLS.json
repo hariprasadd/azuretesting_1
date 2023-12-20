@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy data1",
+				"name": "FileShare_to_ADLS",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -39,20 +39,20 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "FileShareDS",
+						"referenceName": "FileShareImportDataDS",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "ADLSDS",
+						"referenceName": "ADLSImportDataDS",
 						"type": "DatasetReference"
 					}
 				]
 			}
 		],
 		"annotations": [],
-		"lastPublishTime": "2023-12-11T01:51:32Z"
+		"lastPublishTime": "2023-12-20T13:27:53Z"
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }

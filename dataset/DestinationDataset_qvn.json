@@ -1,5 +1,5 @@
 {
-	"name": "ADLSDS",
+	"name": "DestinationDataset_qvn",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ADLS",

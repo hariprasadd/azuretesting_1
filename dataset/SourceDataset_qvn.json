@@ -1,16 +1,15 @@
 {
-	"name": "ADLSDS",
+	"name": "SourceDataset_qvn",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "ADLS",
+			"referenceName": "FileServer1",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
 		"type": "Binary",
 		"typeProperties": {
 			"location": {
-				"type": "AzureBlobFSLocation",
-				"fileSystem": "sink"
+				"type": "FileServerLocation"
 			}
 		}
 	},

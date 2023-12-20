@@ -1,0 +1,29 @@
+{
+	"name": "Trigger_qvn",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipeline": {
+			"pipelineReference": {
+				"referenceName": "CopyData_5min",
+				"type": "PipelineReference"
+			},
+			"parameters": {
+				"windowStart": "@trigger().outputs.windowStartTime",
+				"windowEnd": "@trigger().outputs.windowEndTime"
+			}
+		},
+		"type": "TumblingWindowTrigger",
+		"typeProperties": {
+			"frequency": "Minute",
+			"interval": 5,
+			"startTime": "2023-12-20T19:01:00Z",
+			"delay": "00:00:00",
+			"maxConcurrency": 50,
+			"retryPolicy": {
+				"intervalInSeconds": 30
+			},
+			"dependsOn": []
+		}
+	}
+}

@@ -1,8 +1,8 @@
 {
-	"name": "ADLSDS",
+	"name": "ADLSImportDataDS",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "ADLS",
+			"referenceName": "ADLSImportData",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],

@@ -1,9 +1,9 @@
 {
-	"name": "DataCopy_bulk_window",
+	"name": "CopyData_5min",
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy_pzi",
+				"name": "Copy_qvn",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -37,8 +37,7 @@
 								"value": "@pipeline().parameters.windowEnd",
 								"type": "Expression"
 							},
-							"wildcardFileName": "*",
-							"deleteFilesAfterCompletion": false
+							"wildcardFileName": "*"
 						},
 						"formatSettings": {
 							"type": "BinaryReadSettings"
@@ -54,34 +53,19 @@
 					"enableStaging": false,
 					"enableSkipIncompatibleRow": false,
 					"skipErrorFile": {
-						"fileMissing": true,
-						"invalidFileName": true
+						"fileMissing": true
 					},
-					"validateDataConsistency": false,
-					"logSettings": {
-						"enableCopyActivityLog": true,
-						"copyActivityLogSettings": {
-							"logLevel": "Warning",
-							"enableReliableLogging": false
-						},
-						"logLocationSettings": {
-							"linkedServiceName": {
-								"referenceName": "ADLS",
-								"type": "LinkedServiceReference"
-							},
-							"path": "logs/"
-						}
-					}
+					"validateDataConsistency": false
 				},
 				"inputs": [
 					{
-						"referenceName": "SourceDataset_pzi",
+						"referenceName": "SourceDataset_qvn",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "DestinationDataset_pzi",
+						"referenceName": "DestinationDataset_qvn",
 						"type": "DatasetReference"
 					}
 				]
@@ -96,7 +80,7 @@
 			}
 		},
 		"annotations": [],
-		"lastPublishTime": "2023-12-16T06:43:04Z"
+		"lastPublishTime": "2023-12-20T19:05:04Z"
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }

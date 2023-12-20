@@ -77,7 +77,8 @@
 					{
 						"activity": "Copy_qvn",
 						"dependencyConditions": [
-							"Completed"
+							"Completed",
+							"Succeeded"
 						]
 					}
 				],

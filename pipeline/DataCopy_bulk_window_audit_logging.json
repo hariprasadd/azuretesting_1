@@ -87,33 +87,6 @@
 									}
 								}
 							}
-						},
-						{
-							"name": "Execute Pipeline1_copy1",
-							"type": "ExecutePipeline",
-							"dependsOn": [],
-							"userProperties": [],
-							"typeProperties": {
-								"pipeline": {
-									"referenceName": "child_pipline_audit_logging",
-									"type": "PipelineReference"
-								},
-								"waitOnCompletion": true,
-								"parameters": {
-									"windowStart": {
-										"value": "@pipeline().parameters.windowStart",
-										"type": "Expression"
-									},
-									"windowEnd": {
-										"value": "@pipeline().parameters.windowEnd",
-										"type": "Expression"
-									},
-									"FolderName": {
-										"value": "@item().name",
-										"type": "Expression"
-									}
-								}
-							}
 						}
 					]
 				}

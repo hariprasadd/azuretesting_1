@@ -72,7 +72,21 @@
 							"copyBehavior": "PreserveHierarchy"
 						}
 					},
-					"enableStaging": false
+					"enableStaging": false,
+					"logSettings": {
+						"enableCopyActivityLog": true,
+						"copyActivityLogSettings": {
+							"logLevel": "Warning",
+							"enableReliableLogging": false
+						},
+						"logLocationSettings": {
+							"linkedServiceName": {
+								"referenceName": "ADLS",
+								"type": "LinkedServiceReference"
+							},
+							"path": "logs/"
+						}
+					}
 				},
 				"inputs": [
 					{

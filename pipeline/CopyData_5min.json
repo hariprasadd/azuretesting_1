@@ -104,10 +104,12 @@
 		],
 		"parameters": {
 			"windowStart": {
-				"type": "String"
+				"type": "String",
+				"defaultValue": "12/20/2023, 12:01:01 PM"
 			},
 			"windowEnd": {
-				"type": "String"
+				"type": "String",
+				"defaultValue": "12/20/2023, 12:01:14 PM"
 			}
 		},
 		"annotations": [],

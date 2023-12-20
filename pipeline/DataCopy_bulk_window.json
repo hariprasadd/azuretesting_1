@@ -85,6 +85,15 @@
 						"type": "DatasetReference"
 					}
 				]
+			},
+			{
+				"name": "Execute Pipeline1",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"waitOnCompletion": true
+				}
 			}
 		],
 		"parameters": {

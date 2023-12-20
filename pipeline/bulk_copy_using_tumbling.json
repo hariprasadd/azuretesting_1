@@ -82,7 +82,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "ADLSDS",
+						"referenceName": "desrination",
 						"type": "DatasetReference"
 					}
 				]

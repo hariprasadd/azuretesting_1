@@ -48,7 +48,10 @@
 						"name": "Source",
 						"value": "/"
 					},
-					null
+					{
+						"name": "Destination",
+						"value": "sink//"
+					}
 				],
 				"typeProperties": {
 					"source": {

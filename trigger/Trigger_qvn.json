@@ -4,16 +4,6 @@
 		"description": "git",
 		"annotations": [],
 		"runtimeState": "Started",
-		"pipeline": {
-			"pipelineReference": {
-				"referenceName": "CopyData_5min",
-				"type": "PipelineReference"
-			},
-			"parameters": {
-				"windowStart": "@trigger().outputs.windowStartTime",
-				"windowEnd": "@trigger().outputs.windowEndTime"
-			}
-		},
 		"type": "TumblingWindowTrigger",
 		"typeProperties": {
 			"frequency": "Minute",

@@ -5,14 +5,7 @@
 			{
 				"name": "ADLS_Parenet_folder_metadata",
 				"type": "GetMetadata",
-				"dependsOn": [
-					{
-						"activity": "droptable",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
+				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
 					"retry": 0,
@@ -33,6 +26,7 @@
 					],
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings",
+						"recursive": true,
 						"modifiedDatetimeStart": {
 							"value": "@pipeline().parameters.windowStart",
 							"type": "Expression"
@@ -95,34 +89,6 @@
 							}
 						}
 					]
-				}
-			},
-			{
-				"name": "droptable",
-				"type": "Lookup",
-				"dependsOn": [],
-				"policy": {
-					"timeout": "0.12:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"source": {
-						"type": "AzureSqlSource",
-						"sqlReaderQuery": {
-							"value": "if object_id('dbo.audit_tbl') is not null drop table dbo.audit_tbl; select 1 as output;",
-							"type": "Expression"
-						},
-						"queryTimeout": "02:00:00",
-						"partitionOption": "None"
-					},
-					"dataset": {
-						"referenceName": "AzureSqlTable1",
-						"type": "DatasetReference"
-					}
 				}
 			}
 		],

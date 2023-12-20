@@ -89,10 +89,31 @@
 			{
 				"name": "Execute Pipeline1",
 				"type": "ExecutePipeline",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "Copy_pzi",
+						"dependencyConditions": [
+							"Completed"
+						]
+					}
+				],
 				"userProperties": [],
 				"typeProperties": {
-					"waitOnCompletion": true
+					"pipeline": {
+						"referenceName": "DataCopy_bulk_window_audit_logging",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true,
+					"parameters": {
+						"windowStart": {
+							"value": "@pipeline().parameters.windowStart",
+							"type": "Expression"
+						},
+						"windowEnd": {
+							"value": "@pipeline().parameters.windowEnd",
+							"type": "Expression"
+						}
+					}
 				}
 			}
 		],

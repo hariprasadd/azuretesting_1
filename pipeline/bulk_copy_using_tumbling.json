@@ -43,7 +43,13 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": [],
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "/"
+					},
+					null
+				],
 				"typeProperties": {
 					"source": {
 						"type": "BinarySource",

@@ -71,7 +71,7 @@
 				]
 			},
 			{
-				"name": "Execute Pipeline1",
+				"name": "execute_audit_logging",
 				"type": "ExecutePipeline",
 				"dependsOn": [
 					{

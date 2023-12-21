@@ -25,6 +25,10 @@
 								"value": "if object_id('dbo.control_tbl') is null select formatDateTime('1999-01-01 00:00:00') else select max(last_end_ts) from dbo.control_tbl;",
 								"type": "Expression"
 							},
+							"modifiedDatetimeEnd": {
+								"value": "@utcnow()",
+								"type": "Expression"
+							},
 							"wildcardFileName": "*",
 							"deleteFilesAfterCompletion": false
 						},

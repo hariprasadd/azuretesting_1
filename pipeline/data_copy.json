@@ -60,7 +60,7 @@
 				]
 			},
 			{
-				"name": "Lookup1",
+				"name": "update_control_tbl",
 				"type": "Lookup",
 				"dependsOn": [
 					{

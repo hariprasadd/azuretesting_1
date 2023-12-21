@@ -85,6 +85,16 @@
 						"type": "DatasetReference"
 					}
 				]
+			},
+			{
+				"name": "SetStartandendtime",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": []
 			}
 		],
 		"parameters": {

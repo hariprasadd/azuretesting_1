@@ -116,7 +116,10 @@
 				"userProperties": [],
 				"typeProperties": {
 					"variableName": "start_time",
-					"value": ""
+					"value": {
+						"value": "select @{formatDateTime(utcNow())} aa output;",
+						"type": "Expression"
+					}
 				}
 			},
 			{

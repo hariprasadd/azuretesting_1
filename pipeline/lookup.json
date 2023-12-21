@@ -47,8 +47,11 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"variableName": "",
-					"value": ""
+					"variableName": "start_time",
+					"value": {
+						"value": "@activity('Lookup1').output.firstRow",
+						"type": "Expression"
+					}
 				}
 			}
 		],

@@ -36,11 +36,25 @@
 							"type": "BinaryReadSettings"
 						}
 					},
+					"sink": {
+						"type": "BinarySink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings",
+							"maxConcurrentConnections": 2,
+							"copyBehavior": "PreserveHierarchy"
+						}
+					},
 					"enableStaging": false
 				},
 				"inputs": [
 					{
 						"referenceName": "source_data",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "desrination",
 						"type": "DatasetReference"
 					}
 				]

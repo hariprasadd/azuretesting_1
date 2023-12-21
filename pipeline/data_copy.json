@@ -110,7 +110,7 @@
 				"type": "SetVariable",
 				"dependsOn": [
 					{
-						"activity": "Lookup1",
+						"activity": "get_last_run_ts",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -147,7 +147,7 @@
 				}
 			},
 			{
-				"name": "Lookup1",
+				"name": "get_last_run_ts",
 				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {

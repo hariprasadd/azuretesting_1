@@ -11,6 +11,12 @@
 						"dependencyConditions": [
 							"Succeeded"
 						]
+					},
+					{
+						"activity": "Set variable1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
 					}
 				],
 				"policy": {
@@ -28,6 +34,14 @@
 							"type": "FileServerReadSettings",
 							"maxConcurrentConnections": 2,
 							"recursive": true,
+							"modifiedDatetimeStart": {
+								"value": "@variables('start_time')",
+								"type": "Expression"
+							},
+							"modifiedDatetimeEnd": {
+								"value": "@variables('end_time')",
+								"type": "Expression"
+							},
 							"wildcardFileName": "*",
 							"deleteFilesAfterCompletion": false
 						},

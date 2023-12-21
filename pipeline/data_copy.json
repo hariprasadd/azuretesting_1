@@ -162,7 +162,7 @@
 					"source": {
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": {
-							"value": "if object_id('dbo.control_tbl') is null select cast( '1999-01-01 00:00:00'as datetime) as curr_time else select cast( last_end_ts as datetime) as curr_time from  dbo.control_tbl;",
+							"value": "if object_id('dbo.control_tbl') is null select cast( '1999-01-01 00:00:00'as datetime) as curr_time else select cast( last_end_ts as datetime) as curr_time from  dbo.control_tbl where process_name = 'copy_hot_data';",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",

@@ -5,7 +5,7 @@
 		"runtimeState": "Stopped",
 		"pipeline": {
 			"pipelineReference": {
-				"referenceName": "bulk_copy_using_tumbling",
+				"referenceName": "bulk_data_copy",
 				"type": "PipelineReference"
 			}
 		},

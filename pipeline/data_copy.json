@@ -116,10 +116,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"variableName": "start_time",
-					"value": {
-						"value": "if object_id('dbo.control_tbl') is not null select formatDateTime(max(last_end_ts)) from dbo.control_tbl else select formatDateTime('1999-01-01 00:00:00');",
-						"type": "Expression"
-					}
+					"value": ""
 				}
 			},
 			{
@@ -135,6 +132,18 @@
 					"variableName": "end_time",
 					"value": {
 						"value": "@utcnow()",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "If Condition1",
+				"type": "IfCondition",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"expression": {
+						"value": "if object_id('dbo.control_tbl') is not null select formatDateTime(max(last_end_ts)) from dbo.control_tbl ",
 						"type": "Expression"
 					}
 				}

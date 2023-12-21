@@ -117,7 +117,7 @@
 				"typeProperties": {
 					"variableName": "start_time",
 					"value": {
-						"value": "select @{formatDateTime(utcNow())} as output;",
+						"value": "select @{formatDateTime(utcNow())} ;",
 						"type": "Expression"
 					}
 				}

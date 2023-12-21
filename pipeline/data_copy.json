@@ -32,7 +32,6 @@
 						"type": "BinarySource",
 						"storeSettings": {
 							"type": "FileServerReadSettings",
-							"maxConcurrentConnections": 2,
 							"recursive": true,
 							"modifiedDatetimeStart": {
 								"value": "@variables('start_time')",
@@ -53,7 +52,6 @@
 						"type": "BinarySink",
 						"storeSettings": {
 							"type": "AzureBlobFSWriteSettings",
-							"maxConcurrentConnections": 2,
 							"copyBehavior": "PreserveHierarchy"
 						}
 					},

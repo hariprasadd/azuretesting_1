@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "copy_data_",
+				"name": "copy_data",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -15,8 +15,24 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
+					"source": {
+						"type": "BinarySource",
+						"storeSettings": {
+							"type": "FileServerReadSettings",
+							"recursive": true
+						},
+						"formatSettings": {
+							"type": "BinaryReadSettings"
+						}
+					},
 					"enableStaging": false
-				}
+				},
+				"inputs": [
+					{
+						"referenceName": "source_data",
+						"type": "DatasetReference"
+					}
+				]
 			}
 		],
 		"annotations": []

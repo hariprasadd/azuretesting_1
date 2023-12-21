@@ -143,7 +143,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"expression": {
-						"value": "if object_id('dbo.control_tbl') is not null select formatDateTime(max(last_end_ts)) from dbo.control_tbl ",
+						"value": "if object_id('dbo.control_tbl') is not null select 1 as out;",
 						"type": "Expression"
 					}
 				}

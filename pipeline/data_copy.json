@@ -19,7 +19,7 @@
 						"type": "BinarySource",
 						"storeSettings": {
 							"type": "FileServerReadSettings",
-							"maxConcurrentConnections": 10,
+							"maxConcurrentConnections": 2,
 							"recursive": true,
 							"wildcardFileName": "*",
 							"deleteFilesAfterCompletion": false

@@ -18,7 +18,7 @@
 					"source": {
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": {
-							"value": "if object_id('dbo.control_tbl') is null select getutcdate();\n\n",
+							"value": "if object_id('dbo.control_tbl') is null select csat( '1999-01-01 00:00:00'as datetime);\n\n",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",

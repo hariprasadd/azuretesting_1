@@ -7,7 +7,7 @@
 				"type": "Copy",
 				"dependsOn": [
 					{
-						"activity": "d",
+						"activity": "set_start_end_time",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -94,7 +94,7 @@
 				}
 			},
 			{
-				"name": "d",
+				"name": "set_start_end_time",
 				"type": "SetVariable",
 				"dependsOn": [],
 				"policy": {
@@ -104,6 +104,14 @@
 				"userProperties": []
 			}
 		],
+		"variables": {
+			"start_time": {
+				"type": "String"
+			},
+			"end_time": {
+				"type": "String"
+			}
+		},
 		"annotations": []
 	}
 }

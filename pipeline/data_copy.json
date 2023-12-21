@@ -104,8 +104,21 @@
 				"userProperties": [],
 				"typeProperties": {
 					"variableName": "start_time",
-					"value": ""
+					"value": {
+						"value": "if object_id('dbo.control_tbl') is not null select formatDateTime(max(last_end_ts)) from dbo.control_tbl else select formatDateTime('1999-01-01 00:00:00');",
+						"type": "Expression"
+					}
 				}
+			},
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": []
 			}
 		],
 		"variables": {

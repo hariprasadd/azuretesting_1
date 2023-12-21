@@ -93,7 +93,7 @@
 					"source": {
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": {
-							"value": "if object_id('dbo.control_tbl') is null create table dbo.control_tbl; \ndelete dbo.control_tbl where process_name = 'copy_hot_data';\ninsert into dbo.control_tbl(process_name,last_start_ts, last_end_ts) values('copy_hot_data',variables('start_time'),variables('end_time')); select 1 as output",
+							"value": "if object_id('dbo.control_tbl') is null create table dbo.control_tbl; \ndelete dbo.control_tbl where process_name = 'copy_hot_data';\ninsert into dbo.control_tbl(process_name,last_start_ts, last_end_ts) values('copy_hot_data',@{formatDateTime(variables('start_time'))},@{formatDateTime(variables('end_time'))}; select 1 as output",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",

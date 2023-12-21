@@ -33,15 +33,30 @@
 			{
 				"name": "Set variable1",
 				"type": "SetVariable",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "Lookup1",
+						"dependencyConditions": [
+							"Completed"
+						]
+					}
+				],
 				"policy": {
 					"secureOutput": false,
 					"secureInput": false
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"variableName": "start_time",
-					"value": ""
+					"variableName": "pipelineReturnValue",
+					"value": [
+						{
+							"key": "curr_time",
+							"value": {
+								"type": "String"
+							}
+						}
+					],
+					"setSystemVariable": true
 				}
 			}
 		],

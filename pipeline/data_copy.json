@@ -124,7 +124,7 @@
 				"typeProperties": {
 					"variableName": "start_time",
 					"value": {
-						"value": "select @{formatDateTime(utcNow())} ;",
+						"value": "@activity('Lookup1').output.firstRow.curr_time",
 						"type": "Expression"
 					}
 				}
@@ -161,6 +161,10 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
+						"sqlReaderQuery": {
+							"value": "if object_id('dbo.control_tbl') is null select cast( '1999-01-01 00:00:00'as datetime) as curr_time else select cast( last_end_ts as datetime) as curr_time from  dbo.control_tbl;",
+							"type": "Expression"
+						},
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},

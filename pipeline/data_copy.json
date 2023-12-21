@@ -7,13 +7,13 @@
 				"type": "Copy",
 				"dependsOn": [
 					{
-						"activity": "set_start_end_time",
+						"activity": "set_start_time",
 						"dependencyConditions": [
 							"Succeeded"
 						]
 					},
 					{
-						"activity": "Set variable1",
+						"activity": "set_end_time",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -106,7 +106,7 @@
 				}
 			},
 			{
-				"name": "set_start_end_time",
+				"name": "set_start_time",
 				"type": "SetVariable",
 				"dependsOn": [],
 				"policy": {
@@ -123,7 +123,7 @@
 				}
 			},
 			{
-				"name": "Set variable1",
+				"name": "set_end_time",
 				"type": "SetVariable",
 				"dependsOn": [],
 				"policy": {

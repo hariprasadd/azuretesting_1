@@ -47,16 +47,8 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"variableName": "pipelineReturnValue",
-					"value": [
-						{
-							"key": "curr_time",
-							"value": {
-								"type": "String"
-							}
-						}
-					],
-					"setSystemVariable": true
+					"variableName": "",
+					"value": ""
 				}
 			}
 		],

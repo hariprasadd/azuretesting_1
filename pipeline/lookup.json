@@ -49,7 +49,7 @@
 				"typeProperties": {
 					"variableName": "start_time",
 					"value": {
-						"value": "@activity('Lookup1').output.firstRow",
+						"value": "@activity('Lookup1').output.firstRow.curr_time",
 						"type": "Expression"
 					}
 				}

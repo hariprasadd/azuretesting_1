@@ -18,7 +18,7 @@
 					"source": {
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": {
-							"value": "@if object_id('dbo.control_tbl') is null select formatDateTime('1999-01-01 00:00:00')",
+							"value": "if object_id('dbo.control_tbl') is null select @{formatDateTime('1999-01-01 00:00:00')};",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",

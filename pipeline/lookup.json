@@ -18,7 +18,7 @@
 					"source": {
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": {
-							"value": "if object_id('dbo.control_tbl') is null select cast( '1999-01-01 00:00:00'as datetime) as curr_time;\n\n",
+							"value": "if object_id('dbo.control_tbl') is null select cast( '1999-01-01 00:00:00'as datetime) as curr_time else select cast( getutcdate() as datetime) as curr_time;\n",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",

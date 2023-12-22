@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Get_Fileslist_",
+				"name": "Get_Fileslist_From_subfolder",
 				"type": "GetMetadata",
 				"dependsOn": [],
 				"policy": {
@@ -45,7 +45,7 @@
 				"type": "ForEach",
 				"dependsOn": [
 					{
-						"activity": "Get_Fileslist_",
+						"activity": "Get_Fileslist_From_subfolder",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -53,10 +53,6 @@
 				],
 				"userProperties": [],
 				"typeProperties": {
-					"items": {
-						"value": "@activity('Get Metadata1').output.childItems",
-						"type": "Expression"
-					},
 					"activities": [
 						{
 							"name": "File Meta data",

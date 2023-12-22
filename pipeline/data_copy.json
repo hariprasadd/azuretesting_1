@@ -93,7 +93,7 @@
 					"source": {
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": {
-							"value": "create table dbo.control_tbl(process_name varchar(20),last_start_ts datetime, last_end_ts datetime);\ninsert into dbo.control_tbl select 'copy_hot_data','@{variables('start_time')}',cast( '2001-01-01 00:00:00'as datetime); select 1 as output;",
+							"value": "create table dbo.control_tbl(process_name varchar(20),last_start_ts datetime, last_end_ts datetime);\ninsert into dbo.control_tbl select 'copy_hot_data','@{variables('start_time')}','@{variables('end_time')}'; select 1 as output;",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",

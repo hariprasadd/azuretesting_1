@@ -177,10 +177,31 @@
 			{
 				"name": "Execute_audit_logging",
 				"type": "ExecutePipeline",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "update_control_tbl",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"userProperties": [],
 				"typeProperties": {
-					"waitOnCompletion": true
+					"pipeline": {
+						"referenceName": "DataCopy_bulk_window_audit_logging",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true,
+					"parameters": {
+						"windowStart": {
+							"value": "@variables('start_time')",
+							"type": "Expression"
+						},
+						"windowEnd": {
+							"value": "@variables('end_time')",
+							"type": "Expression"
+						}
+					}
 				}
 			}
 		],

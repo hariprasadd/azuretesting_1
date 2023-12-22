@@ -194,7 +194,7 @@
 					"source": {
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": {
-							"value": "if object_id('dbo.control_tbl') is null create table dbo.control_tbl(process_name varchar(20),last_start_ts datetime, last_end_ts datetime);\ninsert into dbo.control_tbl select 'audit_log_copy_hot','@{variables('windowStart')}','@{formatDateTime(variables('windowEnd'), 'yyyy-MM-dd HH:mm:ss')}'; select 1 as output; ",
+							"value": "if object_id('dbo.control_tbl') is null create table dbo.control_tbl(process_name varchar(20),last_start_ts datetime, last_end_ts datetime);\n\n\nif (select top 1 1 from [dbo].[control_tbl] where process_name = 'copy_hot_data') = 1\n    update dbo.control_tbl set  last_start_ts =  '@{variables('windowStart')}', last_end_ts= '@{formatDateTime(variables('windowEnd'), 'yyyy-MM-dd HH:mm:ss')}' where process_name = 'copy_hot_data' \nelse\n    insert into dbo.control_tbl select 'audit_log_copy_hot','@{variables('windowStart')}','@{formatDateTime(variables('windowEnd'), 'yyyy-MM-dd HH:mm:ss')}'; select 1 as output; ",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",

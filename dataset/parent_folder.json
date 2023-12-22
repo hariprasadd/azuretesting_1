@@ -1,5 +1,5 @@
 {
-	"name": "Binary1",
+	"name": "parent_folder",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ADLS",

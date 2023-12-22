@@ -29,7 +29,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "Binary1",
+						"referenceName": "parent_folder",
 						"type": "DatasetReference"
 					},
 					"fieldList": [

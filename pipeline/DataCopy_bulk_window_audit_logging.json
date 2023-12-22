@@ -129,7 +129,14 @@
 			{
 				"name": "set_end_time",
 				"type": "SetVariable",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "get_end_ts",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"policy": {
 					"secureOutput": false,
 					"secureInput": false
@@ -195,6 +202,34 @@
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": {
 							"value": "if object_id('dbo.control_tbl') is null create table dbo.control_tbl(process_name varchar(20),last_start_ts datetime, last_end_ts datetime);\n\n\nif (select top 1 1 from [dbo].[control_tbl] where process_name = 'audit_log_copy_hot') = 1\n    update dbo.control_tbl set  last_start_ts =  '@{variables('windowStart')}', last_end_ts= '@{formatDateTime(variables('windowEnd'), 'yyyy-MM-dd HH:mm:ss')}' where process_name = 'audit_log_copy_hot' \nelse\n    insert into dbo.control_tbl select 'audit_log_copy_hot','@{variables('windowStart')}','@{formatDateTime(variables('windowEnd'), 'yyyy-MM-dd HH:mm:ss')}'; select 1 as output; ",
+							"type": "Expression"
+						},
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "AzureSqlTable2",
+						"type": "DatasetReference"
+					}
+				}
+			},
+			{
+				"name": "get_end_ts",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"sqlReaderQuery": {
+							"value": "if object_id('dbo.control_tbl') is null \n    select cast( '1900-01-01 00:00:00'as datetime) as curr_time \n else \n   if (select top 1 1  from [dbo].[control_tbl] where process_name = 'audit_log_copy_hot') = 1 \n         select cast( max(last_end_ts) as datetime) as curr_time from dbo.control_tbl where process_name = 'audit_log_copy_hot';\n   else\n      select cast( '1900-01-01 00:00:00'as datetime) as curr_time",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",

@@ -53,6 +53,10 @@
 				],
 				"userProperties": [],
 				"typeProperties": {
+					"items": {
+						"value": "@activity('Get_Fileslist_From_subfolder').output.childItems",
+						"type": "Expression"
+					},
 					"activities": [
 						{
 							"name": "File Meta data",

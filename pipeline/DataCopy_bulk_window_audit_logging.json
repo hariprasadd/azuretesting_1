@@ -87,7 +87,7 @@
 								"waitOnCompletion": true,
 								"parameters": {
 									"windowStart": {
-										"value": "@pipeline().parameters.windowStart",
+										"value": "@variables('windowStart')",
 										"type": "Expression"
 									},
 									"windowEnd": {

@@ -162,7 +162,7 @@
 					"source": {
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": {
-							"value": "if object_id('dbo.control_tbl') is null \n    select cast( '1999-01-01 00:00:00'as datetime) as curr_time \n else \n  if (select 1 from [dbo].[control_tbl] where process_name = 'copy_hot_data') = 1 \n \t\tselect cast(max(last_end_ts) as datetime) as curr_time from dbo.control_tbl where process_name = 'copy_hot_data';\n   else\n  \t select cast( '2001-01-01 00:00:00'as datetime) as curr_time",
+							"value": "if object_id('dbo.control_tbl') is null \n    select cast( '1999-01-01 00:00:00'as datetime) as curr_time \n else \n  if (select top 1 1 from [dbo].[control_tbl] where process_name = 'copy_hot_data') = 1 \n \t\tselect cast(max(last_end_ts) as datetime) as curr_time from dbo.control_tbl where process_name = 'copy_hot_data';\n   else\n  \t select cast( '2001-01-01 00:00:00'as datetime) as curr_time",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",

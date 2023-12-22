@@ -191,17 +191,7 @@
 						"referenceName": "DataCopy_bulk_window_audit_logging",
 						"type": "PipelineReference"
 					},
-					"waitOnCompletion": true,
-					"parameters": {
-						"windowStart": {
-							"value": "@variables('start_time')",
-							"type": "Expression"
-						},
-						"windowEnd": {
-							"value": "@variables('end_time')",
-							"type": "Expression"
-						}
-					}
+					"waitOnCompletion": true
 				}
 			}
 		],

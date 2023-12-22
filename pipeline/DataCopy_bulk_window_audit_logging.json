@@ -121,7 +121,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"variableName": "start_time",
+					"variableName": "windowStart",
 					"value": {
 						"value": "@activity('get_last_run_ts').output.firstRow.curr_time",
 						"type": "Expression"
@@ -174,16 +174,11 @@
 				}
 			}
 		],
-		"parameters": {
+		"variables": {
 			"windowStart": {
 				"type": "String"
 			},
 			"windowEnd": {
-				"type": "String"
-			}
-		},
-		"variables": {
-			"folde": {
 				"type": "String"
 			}
 		},

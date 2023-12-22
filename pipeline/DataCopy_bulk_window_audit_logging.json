@@ -129,7 +129,14 @@
 			{
 				"name": "set_end_time",
 				"type": "SetVariable",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "get_last_run_ts",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"policy": {
 					"secureOutput": false,
 					"secureInput": false
@@ -138,7 +145,7 @@
 				"typeProperties": {
 					"variableName": "windowEnd",
 					"value": {
-						"value": "select getdate() from dbo.control_tbl;",
+						"value": "@activity('get_last_run_ts').output.firstRow.end_time",
 						"type": "Expression"
 					}
 				}
@@ -159,7 +166,7 @@
 					"source": {
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": {
-							"value": "if object_id('dbo.control_tbl') is null \n    select cast( '1900-01-01 00:00:00'as datetime) as curr_time \n else \n   if (select top 1 1  from [dbo].[control_tbl] where process_name = 'audit_log_copy_hot') = 1 \n         select cast( max(last_end_ts) as datetime) as curr_time from dbo.control_tbl where process_name = 'audit_log_copy_hot';\n   else\n      select cast( '1900-01-01 00:00:00'as datetime) as curr_time",
+							"value": "if object_id('dbo.control_tbl') is null \n    select cast( '1900-01-01 00:00:00'as datetime) as curr_time ,\n    getdate() as end_time\n else \n   if (select top 1 1  from [dbo].[control_tbl] where process_name = 'audit_log_copy_hot') = 1 \n         select cast( max(last_end_ts) as datetime) as curr_time , getdate() as end_time from dbo.control_tbl where process_name = 'audit_log_copy_hot';\n   else\n      select cast( '1900-01-01 00:00:00'as datetime) as curr_time, getdate() as end_time",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",

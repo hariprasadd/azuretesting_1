@@ -173,6 +173,15 @@
 						"type": "DatasetReference"
 					}
 				}
+			},
+			{
+				"name": "Execute_audit_logging",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"waitOnCompletion": true
+				}
 			}
 		],
 		"variables": {

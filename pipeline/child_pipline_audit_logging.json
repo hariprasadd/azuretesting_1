@@ -78,7 +78,7 @@
 							"userProperties": [],
 							"typeProperties": {
 								"dataset": {
-									"referenceName": "Binary2",
+									"referenceName": "file_meta_path",
 									"type": "DatasetReference",
 									"parameters": {
 										"FolderName": {

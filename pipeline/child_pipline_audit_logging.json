@@ -167,10 +167,6 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": {
-							"value": "if object_id('dbo.control_tbl') is null create table dbo.control_tbl(process_name varchar(20),last_start_ts datetime, last_end_ts datetime);\ninsert into dbo.control_tbl select 'copy_hot_data','@{variables('start_time')}','@{formatDateTime(variables('end_time'), 'yyyy-MM-dd HH:mm:ss')}'; select 1 as output;",
-							"type": "Expression"
-						},
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},

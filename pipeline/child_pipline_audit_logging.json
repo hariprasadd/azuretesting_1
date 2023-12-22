@@ -150,41 +150,6 @@
 						}
 					]
 				}
-			},
-			{
-				"name": "update_control_tbl",
-				"type": "Lookup",
-				"dependsOn": [
-					{
-						"activity": "ForeachFile",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"policy": {
-					"timeout": "0.12:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"source": {
-						"type": "AzureSqlSource",
-						"sqlReaderQuery": {
-							"value": "if object_id('dbo.control_tbl') is null create table dbo.control_tbl(process_name varchar(20),last_start_ts datetime, last_end_ts datetime);\ninsert into dbo.control_tbl select 'audit_log_copy_hot','@{pipeline().parameters.windowStart}','@{formatDateTime(pipeline().parameters.windowEnd, 'yyyy-MM-dd HH:mm:ss')}'; select 1 as output; ",
-							"type": "Expression"
-						},
-						"queryTimeout": "02:00:00",
-						"partitionOption": "None"
-					},
-					"dataset": {
-						"referenceName": "AzureSqlTable2",
-						"type": "DatasetReference"
-					}
-				}
 			}
 		],
 		"parameters": {

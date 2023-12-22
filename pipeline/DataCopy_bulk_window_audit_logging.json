@@ -29,7 +29,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "parent_folder",
+						"referenceName": "parent_folder_path",
 						"type": "DatasetReference"
 					},
 					"fieldList": [

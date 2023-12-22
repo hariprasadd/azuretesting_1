@@ -1,0 +1,24 @@
+{
+	"name": "trigger1_data_copy",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "data_copy",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 5,
+				"startTime": "2023-12-22T22:10:00",
+				"timeZone": "Pacific Standard Time"
+			}
+		}
+	}
+}

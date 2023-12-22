@@ -38,14 +38,6 @@
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings",
 						"recursive": true,
-						"modifiedDatetimeStart": {
-							"value": "@variables('windowStart')",
-							"type": "Expression"
-						},
-						"modifiedDatetimeEnd": {
-							"value": "@variables('windowEnd')",
-							"type": "Expression"
-						},
 						"enablePartitionDiscovery": false
 					},
 					"formatSettings": {
@@ -145,7 +137,7 @@
 				"typeProperties": {
 					"variableName": "windowEnd",
 					"value": {
-						"value": "@{formatDateTime(activity('get_last_run_ts').output.firstRow.end_time, 'yyyy-MM-dd HH:mm:ss')}",
+						"value": "@activity('get_last_run_ts').output.firstRow.end_time",
 						"type": "Expression"
 					}
 				}

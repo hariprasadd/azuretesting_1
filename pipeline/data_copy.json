@@ -93,7 +93,7 @@
 					"source": {
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": {
-							"value": "insert into dbo.control_tbl select 'copy_hot_data',@{formatDateTime(variables('start_time'))},@{formatDateTime(variables('end_time'))}; select 1 as output;\n",
+							"value": "insert into dbo.control_tbl select 'copy_hot_data',@{variables('start_time')},@{variables('end_time')}; select 1 as output;",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",

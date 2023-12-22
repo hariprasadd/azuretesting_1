@@ -91,7 +91,7 @@
 										"type": "Expression"
 									},
 									"windowEnd": {
-										"value": "@pipeline().parameters.windowEnd",
+										"value": "@variables('windowEnd')",
 										"type": "Expression"
 									},
 									"FolderName": {

@@ -90,6 +90,75 @@
 						}
 					]
 				}
+			},
+			{
+				"name": "set_start_time",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "get_last_run_ts",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "start_time",
+					"value": {
+						"value": "@activity('get_last_run_ts').output.firstRow.curr_time",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "set_end_time",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "end_time",
+					"value": {
+						"value": "@utcnow()",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "get_last_run_ts",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"sqlReaderQuery": {
+							"value": "if object_id('dbo.control_tbl') is null \n    select cast( '1999-01-01 00:00:00'as datetime) as curr_time \n else \n  if (select 1 from [dbo].[control_tbl] where process_name = 'copy_hot_data') = 1 \n \t\tselect cast( last_end_ts as datetime) as curr_time from dbo.control_tbl where process_name = 'copy_hot_data';\n   else\n  \t select cast( '2001-01-01 00:00:00'as datetime) as curr_time",
+							"type": "Expression"
+						},
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "AzureSqlTable2",
+						"type": "DatasetReference"
+					}
+				}
 			}
 		],
 		"parameters": {

@@ -1,0 +1,212 @@
+{
+	"name": "Submit Databricks Job",
+	"properties": {
+		"activities": [
+			{
+				"name": "Execute Jobs",
+				"type": "WebActivity",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"url": {
+						"value": "@concat(pipeline().parameters.DbxWorkSpace,'/api/2.1/jobs/run-now')\n\n\n",
+						"type": "Expression"
+					},
+					"method": "POST",
+					"body": {
+						"value": "@concat('{\"job_id\":',pipeline().parameters.JobId,\n',', \npipeline().parameters.NotebookParams,\n'}')",
+						"type": "Expression"
+					},
+					"authentication": {
+						"type": "MSI",
+						"resource": "2ff814a6-3304-4ab8-85cb-cd0e6f879c1d"
+					}
+				}
+			},
+			{
+				"name": "Until1",
+				"type": "Until",
+				"dependsOn": [
+					{
+						"activity": "Execute Jobs",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"expression": {
+						"value": "@not(equals(variables('JobStatus'), 'Running'))",
+						"type": "Expression"
+					},
+					"activities": [
+						{
+							"name": "Check Job Run API",
+							"type": "WebActivity",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"url": {
+									"value": "@concat(pipeline().parameters.DbxWorkSpace, '/api/2.1/jobs/runs/get?run_id=',activity('Execute Jobs').output.run_id)\n\n",
+									"type": "Expression"
+								},
+								"method": "GET",
+								"authentication": {
+									"type": "MSI",
+									"resource": "2ff814a6-3304-4ab8-85cb-cd0e6f879c1d"
+								}
+							}
+						},
+						{
+							"name": "Set JobStatus",
+							"type": "SetVariable",
+							"dependsOn": [
+								{
+									"activity": "Check Job Run API",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"policy": {
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "JobStatus",
+								"value": {
+									"value": "@if(\nor(\nequals(activity('Check Job Run API').output.state.life_cycle_state, 'PENDING'), equals(activity('Check Job Run API').output.state.life_cycle_state, 'RUNNING')\n),\n'Running',\nactivity('Check Job Run API').output.state.result_state\n)",
+									"type": "Expression"
+								}
+							}
+						},
+						{
+							"name": "Wait to Recheck API",
+							"type": "Wait",
+							"dependsOn": [
+								{
+									"activity": "Set JobStatus",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"userProperties": [],
+							"typeProperties": {
+								"waitTimeInSeconds": {
+									"value": "@pipeline().parameters.WaitPeriod",
+									"type": "Expression"
+								}
+							}
+						},
+						{
+							"name": "Set JobStateMessage",
+							"type": "SetVariable",
+							"dependsOn": [
+								{
+									"activity": "Check Job Run API",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"policy": {
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "JobStateMessage",
+								"value": {
+									"value": "@if(\nor(\nequals(activity('Check Job Run API').output.state.life_cycle_state, 'PENDING'), equals(activity('Check Job Run API').output.state.life_cycle_state, 'RUNNING')\n),\n'Running',\nactivity('Check Job Run API').output.state.result_state\n)",
+									"type": "Expression"
+								}
+							}
+						}
+					],
+					"timeout": "0.5:00:00"
+				}
+			},
+			{
+				"name": "If Condition1",
+				"type": "IfCondition",
+				"dependsOn": [
+					{
+						"activity": "Until1",
+						"dependencyConditions": [
+							"Completed"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"expression": {
+						"value": "@equals(variables('JobStatus'), 'SUCCESS')",
+						"type": "Expression"
+					},
+					"ifFalseActivities": [
+						{
+							"name": "Databricks Job Failed",
+							"type": "Fail",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"message": "Databricks Job Failed",
+								"errorCode": "-1"
+							}
+						}
+					]
+				}
+			}
+		],
+		"parameters": {
+			"JobId": {
+				"type": "string",
+				"defaultValue": "718012528156511"
+			},
+			"DbxWorkSpace": {
+				"type": "string",
+				"defaultValue": "https://adb-2931482637037416.16.azuredatabricks.net"
+			},
+			"WaitPeriod": {
+				"type": "int",
+				"defaultValue": 30
+			},
+			"NotebookParams": {
+				"type": "string",
+				"defaultValue": "\"notebook_params\": { \"configFileName\": \"Config/Import_FlatFileConfig_OracleOnly.json\", \"workspaceUrl\": \"https://adb-2931482637037416.16.azuredatabricks.net\" }"
+			}
+		},
+		"variables": {
+			"JobStatus": {
+				"type": "String",
+				"defaultValue": "Running"
+			},
+			"JobStateMessage": {
+				"type": "String"
+			}
+		},
+		"folder": {
+			"name": "Test_Pipelines"
+		},
+		"annotations": [],
+		"lastPublishTime": "2023-12-18T17:56:23Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

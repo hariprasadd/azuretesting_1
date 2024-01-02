@@ -23,10 +23,6 @@
 					"body": {
 						"value": "@concat('{\"job_id\":',pipeline().parameters.JobId,\n',', \npipeline().parameters.NotebookParams,\n'}')",
 						"type": "Expression"
-					},
-					"authentication": {
-						"type": "Basic",
-						"username": "hdasari@computomic.com"
 					}
 				}
 			},

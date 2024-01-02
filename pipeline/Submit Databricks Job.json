@@ -25,8 +25,8 @@
 						"type": "Expression"
 					},
 					"authentication": {
-						"type": "Basic",
-						"username": "hdasari@computomic.com"
+						"resource": "hdsr",
+						"type": "UserAssignedManagedIdentity"
 					}
 				}
 			},

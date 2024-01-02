@@ -182,7 +182,7 @@
 			},
 			"DbxWorkSpace": {
 				"type": "string",
-				"defaultValue": "https://https://dbc-f663f509-f7b0.cloud.databricks.com"
+				"defaultValue": "https://dbc-f663f509-f7b0.cloud.databricks.com"
 			},
 			"WaitPeriod": {
 				"type": "int",

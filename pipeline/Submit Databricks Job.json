@@ -202,9 +202,6 @@
 				"type": "String"
 			}
 		},
-		"folder": {
-			"name": "Test_Pipelines"
-		},
 		"annotations": [],
 		"lastPublishTime": "2023-12-18T17:56:23Z"
 	},

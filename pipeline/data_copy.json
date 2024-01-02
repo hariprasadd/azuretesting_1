@@ -193,6 +193,26 @@
 					},
 					"waitOnCompletion": true
 				}
+			},
+			{
+				"name": "Execute_audit_logging_copy1",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "update_control_tbl",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "DataCopy_bulk_window_audit_logging",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
 			}
 		],
 		"variables": {

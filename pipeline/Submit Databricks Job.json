@@ -191,6 +191,9 @@
 			"NotebookParams": {
 				"type": "string",
 				"defaultValue": "\"notebook_params\": { \"configFileName\": \"Config/Import_FlatFileConfig_OracleOnly.json\", \"workspaceUrl\": \"https://adb-2931482637037416.16.azuredatabricks.net\" }"
+			},
+			"pwd": {
+				"type": "string"
 			}
 		},
 		"variables": {

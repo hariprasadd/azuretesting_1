@@ -195,7 +195,7 @@
 				}
 			},
 			{
-				"name": "Execute_audit_logging_copy1",
+				"name": "Submit_workflow",
 				"type": "ExecutePipeline",
 				"dependsOn": [
 					{
@@ -208,7 +208,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"pipeline": {
-						"referenceName": "DataCopy_bulk_window_audit_logging",
+						"referenceName": "Submit Databricks Job",
 						"type": "PipelineReference"
 					},
 					"waitOnCompletion": true

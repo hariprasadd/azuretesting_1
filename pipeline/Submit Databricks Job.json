@@ -178,11 +178,11 @@
 		"parameters": {
 			"JobId": {
 				"type": "string",
-				"defaultValue": "718012528156511"
+				"defaultValue": "1013290703430396"
 			},
 			"DbxWorkSpace": {
 				"type": "string",
-				"defaultValue": "https://dbc-f663f509-f7b0.cloud.databricks.com"
+				"defaultValue": "https://https://dbc-f663f509-f7b0.cloud.databricks.com"
 			},
 			"WaitPeriod": {
 				"type": "int",
@@ -201,6 +201,9 @@
 			"JobStateMessage": {
 				"type": "String"
 			}
+		},
+		"folder": {
+			"name": "Test_Pipelines"
 		},
 		"annotations": [],
 		"lastPublishTime": "2023-12-18T17:56:23Z"

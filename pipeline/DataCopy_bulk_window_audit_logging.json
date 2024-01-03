@@ -165,7 +165,7 @@
 						"partitionOption": "None"
 					},
 					"dataset": {
-						"referenceName": "AzureSqlTable2",
+						"referenceName": "control_table",
 						"type": "DatasetReference"
 					}
 				}
@@ -200,7 +200,7 @@
 						"partitionOption": "None"
 					},
 					"dataset": {
-						"referenceName": "AzureSqlTable2",
+						"referenceName": "control_table",
 						"type": "DatasetReference"
 					}
 				}
